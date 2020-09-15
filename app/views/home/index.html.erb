@@ -1,0 +1,27 @@
+<div class="jumbotron text-center">
+    <h1>Welcome to My Final Blog Application</h1><br>
+    <p class= "text-left">
+        This is my final code for trial with all the required parameters for accessability and flash messages<br>
+        I hope you enjoy going through my application and test it for any possible errors<br>
+        I also tried to avoid any repeatetion for codes.<br>
+        Thank you for sharing experiance.<br>
+        <strong>I will wait your comments</strong>
+        <br><br>
+        Best Regards,<br>
+        Tarek<br>
+    </p>
+
+    
+
+</div>
+
+<div class="text-center">
+    <% if current_user %>
+            <%= link_to('Articles Dashboard' , posts_path , :class => 'btn btn-outline-success') %><br><br>
+            <%= link_to('Sign Out', destroy_user_session_path , method: :delete , :class => 'btn btn-outline-danger') %><br><br>
+            <%= link_to("Admin Control",( {:controller => 'admin_controler' , :action => 'index' }), :class => 'btn btn-outline-primary')  if current_user.admin? %>
+        <% else %>
+            <%= link_to("Sign In", new_user_session_path , :class => 'btn btn-outline-success') %>
+            <%= link_to("Sign Up", new_user_registration_path , :class => 'btn btn-outline-primary') %>
+    <% end %>
+</div>

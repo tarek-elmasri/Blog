@@ -1,0 +1,13 @@
+
+
+<!--catch validation errors for post-->
+<% if (@post.errors.any?) %>
+    <% @post.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger">
+            <%= msg %>
+        </div>
+    <% end %>
+<% end %>
+
+
+

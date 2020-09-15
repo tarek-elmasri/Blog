@@ -1,0 +1,6 @@
+<h1>Create New Article</h1>
+<br>
+<%= render '/posts/messages' %>
+
+<!--rendering form for new article-->
+<%= render "form" ,  form: :post  , path: posts_path , method: 'POST' %>

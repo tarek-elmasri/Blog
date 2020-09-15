@@ -1,0 +1,30 @@
+<h1>Admin Control</h1>
+<small><%= current_user.username %></small><hr>
+
+<h4>search for user by:</h4>
+
+<%= form_for :search , url: {:controller => 'admin_controler' , :action => 'search_options'}, method: 'POST' do |f| %>
+
+    
+    <%= f.radio_button( :search_by , "user" ) %>
+    <%= f.label(:byuser , 'username :') %><br>
+    <%= f.text_field :user %><br><br>
+
+    
+    <%= f.radio_button( :search_by , "email" ) %>
+    <%= f.label( :byemail , 'E-mail:') %><br>
+    <%= f.text_field :email %><br><br>
+    
+    <%= f.radio_button( :search_by , "article") %>
+    <%= f.label(:byarticle , "Articles") %><br>
+    <%= f.text_field :article %><br><br>
+
+    <%= f.radio_button( :search_by , "all" ) %>
+    <%= f.label(:byall , "Show all userss") %><br><br>
+    
+    <%= f.submit "Search" , :class => 'btn btn-outline-primary' %>
+<% end %>
+
+
+
+

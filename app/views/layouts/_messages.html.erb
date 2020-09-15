@@ -1,0 +1,11 @@
+
+<!-- styling flash messages-->
+<% if notice %>
+    <div class="alert alert-success">
+        <%= notice %>
+    </div>
+<% elsif alert %>
+    <div class="alert alert-danger">
+        <%= alert %>
+    </div>
+<% end %>

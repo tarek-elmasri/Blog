@@ -1,0 +1,24 @@
+<h1> "User Search"</h1><hr><br>
+
+<label>
+    <% if @user %>
+        <%= "User Id: #{@user.id}" %><br>
+        <%= "Username : #{@user.username}" %><br>
+        <%= "E-mail : #{@user.email}" %><br>
+
+
+
+    <% else %>
+        <% @users.each do |user| %>
+            <label>
+            <%= "User Id: #{user.id}" %><br>
+            <%= "Username: #{user.username}" %><br>
+            <%= "E-mail: #{user.email}" %><br>
+            <%= "(Admin)" if user.admin? %>
+            </label>
+            <hr>
+        <% end %>
+    <% end %>
+</label>
+
+

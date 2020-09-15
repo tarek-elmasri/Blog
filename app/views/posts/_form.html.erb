@@ -1,0 +1,16 @@
+
+
+<!--form for posts-->
+<%= form_for form , url: path , method: method do |f| %>
+
+    
+
+    <%= f.label :title %><br>
+    <%= f.text_field( :title , :class => 'form-control') %><br>
+    
+    <%= f.label :body %>
+    <%= f.text_area( :body , :class => 'form-control') %><br>
+
+    <%= f.submit( :class => 'btn btn-outline-primary btn-sm') %>
+
+<% end %>

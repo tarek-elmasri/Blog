@@ -1,0 +1,21 @@
+<div>
+    <!-- looping comments-->
+    <% if @comments.any? %><hr>
+        <h4>Comments</h4>
+        <% @comments.each do |comment| %>
+            <strong><%= "#{comment.user.username} :" %></strong> 
+            <%= comment.comment  %>
+            <!--checking accessability for deleting comment-->
+            <% if current_user %>
+                <%= link_to(" [X]" , post_comment_path(comment.post,comment), method: :delete , 
+                                    data: {confirm: "Are you sure?"}) if current_user.comment_access?(comment) %>
+            <% end %>
+            <br>
+        <% end %>
+    <% end %>
+</div>
+
+<hr>
+<!--rendering comment form-->
+<%= render 'comments/form' , form: ([@post , @post.comments.build]) , path: post_comments_path(@post) ,
+                                    method: :post %><br><hr>
